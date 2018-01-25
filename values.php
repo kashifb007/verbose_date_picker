@@ -44,7 +44,10 @@ else if(strtolower(substr($_GET['term'], 0, 3)) == 'nex')
 {
 	$term_found = true;
 	$y = 1;
-	$day_to_suggest = 'Next';
+	$date_array = explode(' ', $_GET['term']);
+	$day_to_suggest = 'Next '.$date_array[1];
+	$next_day = $date_array[1];
+	$days_to_add = (7 + ($days_of_week[$next_day] - $numeric_today));
 }
 else if(strtolower(substr($_GET['term'], 0, 3)) == 'tod')
 {
